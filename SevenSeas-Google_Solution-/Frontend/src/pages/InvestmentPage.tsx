@@ -88,7 +88,9 @@ export function InvestmentPage() {
   const fetchJobStatus = async () => {
     if (!jobId) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/${jobId}`);
+      const response = await fetch(
+        `https://finnai-backend-server.onrender.com/${jobId}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch job status");
       }
@@ -129,16 +131,19 @@ export function InvestmentPage() {
     setAgentMessages([]);
     setLastMessageCount(0);
     try {
-      const response = await fetch("http://localhost:8000/api/execute/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_data: userData,
-          user_query: userQuery,
-        }),
-      });
+      const response = await fetch(
+        "https://finnai-backend-server.onrender.com/api/execute/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_data: userData,
+            user_query: userQuery,
+          }),
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to execute query");
       }
