@@ -26,7 +26,7 @@ manager_agent = Agent(
     backstory="Acts as the central coordinator ensuring seamless communication between agents to optimize overall financial performance.",
     verbose=True,
     allow_delegation=True,
-    tools=[scrape_tool, search_tool],
+    tools=[],
     llm=llm
 )
 
