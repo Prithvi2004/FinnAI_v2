@@ -89,7 +89,7 @@ export function InvestmentPage() {
     if (!jobId) return;
     try {
       const response = await fetch(
-        `https://finnai-backend-server.onrender.com/${jobId}`
+        `https://finnai-backend-server.onrender.com/api/${jobId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch job status");
